@@ -56,7 +56,7 @@ gulp.task('zip', function () {
    '!bower_components',
    '!node_modules',
   ], {base: "."})
-  .pipe(zip('stanleywp.zip'))
+  .pipe(zip('dorithvinken.zip'))
   .pipe(gulp.dest('.'));
 });
 

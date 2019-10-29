@@ -1,7 +1,7 @@
-PerottiPaintings - Bootstrap 4 WordPress Starter Theme
+DorithVinken - Bootstrap 4 WordPress Starter Theme
 ===
 
-PerottiPaintings is _s with Bootstrap 4. 
+DorithVinken is _s with Bootstrap 4. 
 
 Here are some of the other more interesting things you'll find within this theme:
 
@@ -18,4 +18,4 @@ Here are some of the other more interesting things you'll find within this theme
 Getting Started
 ---------------
 
-You can use PerottiPaintings as a starter theme for a WordPress theme you are building or simply use the theme as is. 
+You can use DorithVinken as a starter theme for a WordPress theme you are building or simply use the theme as is. 

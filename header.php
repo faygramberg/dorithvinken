@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package PerottiPaintings
+ * @package DorithVinken
  */
 
 ?><!DOCTYPE html>
@@ -58,4 +58,8 @@
 		</nav>
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+<div id="content" class="site-content">
+
+	<main id="main" class="site-main" role="main">
+		
+		

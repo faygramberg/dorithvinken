@@ -4,14 +4,14 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package PerottiPaintings
+ * @package DorithVinken
  */
 
-if ( ! function_exists( 'stanleywp_posted_on' ) ) :
+if ( ! function_exists( 'dorithvinken_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function stanleywp_posted_on() {
+function dorithvinken_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -25,12 +25,12 @@ function stanleywp_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( '%s', 'post date', 'stanleywp' ),
+		esc_html_x( '%s', 'post date', 'dorithvinken' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		esc_html_x( '%s', 'post author', 'stanleywp' ),
+		esc_html_x( '%s', 'post author', 'dorithvinken' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -39,40 +39,40 @@ function stanleywp_posted_on() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'stanleywp' ) );
-		if ( $categories_list && stanleywp_categorized_blog() ) {
-			printf( '<span class="cat-links"><i class="far fa-folder-open"></i>' . esc_html__( '%1$s', 'stanleywp' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+		$categories_list = get_the_category_list( esc_html__( ', ', 'dorithvinken' ) );
+		if ( $categories_list && dorithvinken_categorized_blog() ) {
+			printf( '<span class="cat-links"><i class="far fa-folder-open"></i>' . esc_html__( '%1$s', 'dorithvinken' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link"><i class="far fa-comments"></i>';
 		/* translators: %s: post title */
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'stanleywp' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'dorithvinken' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</span>';
 	}
 
 }
 endif;
 
-if ( ! function_exists( 'stanleywp_entry_footer' ) ) :
+if ( ! function_exists( 'dorithvinken_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function stanleywp_entry_footer() {
+function dorithvinken_entry_footer() {
 	// Hide category and tag text for pages.
 	// if ( 'post' === get_post_type() && is_single() ) {
 	// 	/* translators: used between list items, there is a space after the comma */
-	// 	$tags_list = get_the_tag_list( '', esc_html__( ', ', 'stanleywp' ) );
+	// 	$tags_list = get_the_tag_list( '', esc_html__( ', ', 'dorithvinken' ) );
 	// 	if ( $tags_list ) {
-	// 		printf( '<span class="tags-links"><i class="fas fa-tags"></i>' . esc_html__( '%1$s', 'stanleywp' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+	// 		printf( '<span class="tags-links"><i class="fas fa-tags"></i>' . esc_html__( '%1$s', 'dorithvinken' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 	// 	}
 	// }
 
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'stanleywp' ),
+			esc_html__( 'Edit %s', 'dorithvinken' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link float-right">',
@@ -86,8 +86,8 @@ endif;
  *
  * @return bool
  */
-function stanleywp_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'stanleywp_categories' ) ) ) {
+function dorithvinken_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'dorithvinken_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -99,27 +99,27 @@ function stanleywp_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'stanleywp_categories', $all_the_cool_cats );
+		set_transient( 'dorithvinken_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so stanleywp_categorized_blog should return true.
+		// This blog has more than 1 category so dorithvinken_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so stanleywp_categorized_blog should return false.
+		// This blog has only 1 category so dorithvinken_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in stanleywp_categorized_blog.
+ * Flush out the transients used in dorithvinken_categorized_blog.
  */
-function stanleywp_category_transient_flusher() {
+function dorithvinken_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'stanleywp_categories' );
+	delete_transient( 'dorithvinken_categories' );
 }
-add_action( 'edit_category', 'stanleywp_category_transient_flusher' );
-add_action( 'save_post',     'stanleywp_category_transient_flusher' );
+add_action( 'edit_category', 'dorithvinken_category_transient_flusher' );
+add_action( 'save_post',     'dorithvinken_category_transient_flusher' );

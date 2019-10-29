@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package PerottiPaintings
+ * @package DorithVinken
  */
 get_header(); ?>
 

@@ -1,13 +1,13 @@
 <?php
 /**
- * PerottiPaintings functions and definitions
+ * DorithVinken functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package PerottiPaintings
+ * @package DorithVinken
  */
 
-if ( ! function_exists( 'stanleywp_setup' ) ) :
+if ( ! function_exists( 'dorithvinken_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'stanleywp_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function stanleywp_setup() {
+function dorithvinken_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on PerottiPaintings, use a find and replace
-	 * to change 'stanleywp' to the name of your theme in all the template files.
+	 * If you're building a theme based on DorithVinken, use a find and replace
+	 * to change 'dorithvinken' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'stanleywp', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'dorithvinken', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,7 +44,7 @@ function stanleywp_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'stanleywp' ),
+		'primary' => esc_html__( 'Primary', 'dorithvinken' ),
 	) );
 
 	/*
@@ -60,7 +60,7 @@ function stanleywp_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'stanleywp_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'dorithvinken_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -85,47 +85,47 @@ function stanleywp_setup() {
 		'editor-color-palette',
 		array(
 			array(
-				'name'  => __( 'Primary', 'stanleywp' ),
+				'name'  => __( 'Primary', 'dorithvinken' ),
 				'slug'  => 'primary',
 				'color' => '#007bff',
 			),
 			array(
-				'name'  => __( 'Secondary', 'stanleywp' ),
+				'name'  => __( 'Secondary', 'dorithvinken' ),
 				'slug'  => 'secondary',
 				'color' => '#6c757d',
 			),
 			array(
-				'name'  => __( 'Success', 'stanleywp' ),
+				'name'  => __( 'Success', 'dorithvinken' ),
 				'slug'  => 'success',
 				'color' => '#28a745',
 			),
 			array(
-				'name'  => __( 'Danger', 'stanleywp' ),
+				'name'  => __( 'Danger', 'dorithvinken' ),
 				'slug'  => 'danger',
 				'color' => '#dc3545',
 			),
 			array(
-				'name'  => __( 'Warning', 'stanleywp' ),
+				'name'  => __( 'Warning', 'dorithvinken' ),
 				'slug'  => 'warning',
 				'color' => '#ffc107',
 			),
 			array(
-				'name'  => __( 'Info', 'stanleywp' ),
+				'name'  => __( 'Info', 'dorithvinken' ),
 				'slug'  => 'info',
 				'color' => '#17a2b8',
 			),
 			array(
-				'name'  => __( 'Dark Gray', 'stanleywp' ),
+				'name'  => __( 'Dark Gray', 'dorithvinken' ),
 				'slug'  => 'dark',
 				'color' => '#343a40',
 			),
 			array(
-				'name'  => __( 'Light Gray', 'stanleywp' ),
+				'name'  => __( 'Light Gray', 'dorithvinken' ),
 				'slug'  => 'light',
 				'color' => '#f8f9fa',
 			),
 			array(
-				'name'  => __( 'White', 'stanleywp' ),
+				'name'  => __( 'White', 'dorithvinken' ),
 				'slug'  => 'white',
 				'color' => '#FFF',
 			),
@@ -135,7 +135,10 @@ function stanleywp_setup() {
 	
 }
 endif;
-add_action( 'after_setup_theme', 'stanleywp_setup' );
+add_action( 'after_setup_theme', 'dorithvinken_setup' );
+
+
+
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -144,10 +147,10 @@ add_action( 'after_setup_theme', 'stanleywp_setup' );
  *
  * @global int $content_width
  */
-function stanleywp_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'stanleywp_content_width', 640 );
+function dorithvinken_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'dorithvinken_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'stanleywp_content_width', 0 );
+add_action( 'after_setup_theme', 'dorithvinken_content_width', 0 );
 
 
 /**
@@ -188,9 +191,9 @@ require get_template_directory() . '/plugin-activation/install-plugins.php';
 /**
  * Metabox.
  */
-// require get_template_directory() . '/inc/metabox.php';
+require get_template_directory() . '/inc/metaboxes.php';
 
 /**
- * Metabox.
+ * Custom Post Type Settings
  */
-require get_template_directory() . '/inc/metaboxes.php';
+require get_template_directory() . '/inc/cpt-settings.php';

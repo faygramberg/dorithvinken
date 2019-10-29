@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package StanleyWP
+ * @package DorithVinken
  */
 ?>
 
@@ -12,7 +12,7 @@
 
 	<?php 
 					// Get the list of files
-	$files = get_post_meta( get_the_ID(), '_stanleywp_images', 1 );
+	$files = get_post_meta( get_the_ID(), '_dorithvinken_images', 1 );
 
 					// Loop through them and output an image
 	 foreach ( (array) $files as $attachment_id => $attachment_url ) {

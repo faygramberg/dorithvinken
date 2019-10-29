@@ -3,6 +3,7 @@
 --------------------------------------------------------------*/
 @import "templates/about";
 @import "templates/home";
+@import "templates/contact";
 
 /*--------------------------------------------------------------
 ## Blocks - Gutenberg
@@ -34,17 +35,5 @@
 --------------------------------------------------------------*/
 @import "footer";
 
-a {
-	transition: color 0.1s ease-in, background 0.1s ease-in;
-}
- 
-.site-content {
-  word-break: break-word;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
 
 

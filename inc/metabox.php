@@ -1,12 +1,12 @@
 <?php
 
 /** Business Category  **/
-add_action( 'cmb2_admin_init', 'stanleywp_metaboxes' );
+add_action( 'cmb2_admin_init', 'dorithvinken_metaboxes' );
 
-function stanleywp_metaboxes() {
+function dorithvinken_metaboxes() {
 
     // Start with an underscore to hide fields from custom fields list
-    $prefix = '_stanleywp_';
+    $prefix = '_dorithvinken_';
 
 
     /**
@@ -14,7 +14,7 @@ function stanleywp_metaboxes() {
      */
     $cmb = new_cmb2_box( array(
         'id'            => 'post_metabox',
-        'title'         => __( 'Post Settings', 'stanleywp' ),
+        'title'         => __( 'Post Settings', 'dorithvinken' ),
         'object_types'  => array( 'post', ), // Post type
         'context'       => 'normal',
         'priority'      => 'high',
@@ -25,7 +25,7 @@ function stanleywp_metaboxes() {
 
     // Regular text field
     $cmb->add_field( array(
-        'name'       => __( 'Full Width Featured Image', 'stanleywp' ),
+        'name'       => __( 'Full Width Featured Image', 'dorithvinken' ),
         'id'         => $prefix . 'full_featured',
         'type'       => 'checkbox',
     ) );
